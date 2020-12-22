@@ -9,6 +9,12 @@
 import UIKit
 
 
+extension String {
+    subscript (characterIndex: Int) -> Character {
+        return self[index(startIndex, offsetBy: characterIndex)]
+    }
+}
+
 class PhoneViewController: UIViewController {
     
     
@@ -16,8 +22,8 @@ class PhoneViewController: UIViewController {
     @IBOutlet weak var displayLable: UILabel!
     @IBOutlet weak var displayAddContact: UIButton!
     
-    private var temp: String = ""
     var isFormated = false
+    var isDeletedFormated = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +35,9 @@ class PhoneViewController: UIViewController {
         
         //tag added as integer to differentiate the UIButton instance.
         let tag = (sender as! UIButton).tag
-        temp += String(tag)
-        
+
         //add the number based on clicked button
         displayLable.text = displayLable.text! + String(tag)
-        
         applyPhoneNumberFormat()
         showButtons()
     }
@@ -49,10 +53,15 @@ class PhoneViewController: UIViewController {
         }
         else if (displayLable.text?.count == 7) {
             displayLable.text!.insert(contentsOf: "-", at: (displayLable.text?.index(displayLable.text!.startIndex, offsetBy: 7))!)
-            
         }
-        else if (displayLable.text?.count == 12) {
-            displayLable.text! = temp
+        else if (displayLable.text?.count == 13 && !isFormated) {
+            let firstDashI = displayLable.text!.index(displayLable.text!.startIndex,offsetBy: 3)
+            let secondDashI = displayLable.text!.index(displayLable.text!.startIndex,offsetBy: 6)
+            displayLable.text!.remove(at: firstDashI)
+            displayLable.text!.remove(at: secondDashI)
+            isFormated = true
+            isDeletedFormated = false
+            
         }
     }
     
@@ -67,6 +76,16 @@ class PhoneViewController: UIViewController {
         if (displayLable.text!.isEmpty) {
             hideButtons()
         }
+        
+        if (displayLable.text!.count == 10 && !isDeletedFormated) {
+            let firstDashI = displayLable.text!.index(displayLable.text!.startIndex,offsetBy: 3)
+            let secondDashI = displayLable.text!.index(displayLable.text!.startIndex,offsetBy: 7)
+            displayLable.text!.insert("-",at: firstDashI)
+            displayLable.text!.insert("-",at: secondDashI)
+            isFormated = false
+            isDeletedFormated = true
+        }
+        
         
         //"000-111-1111"  <-- phone format
         //"000-111-11111"  <-- exceed format
