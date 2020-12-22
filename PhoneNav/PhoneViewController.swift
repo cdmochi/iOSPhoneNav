@@ -8,15 +8,7 @@
 
 import UIKit
 
-
-extension String {
-    subscript (characterIndex: Int) -> Character {
-        return self[index(startIndex, offsetBy: characterIndex)]
-    }
-}
-
 class PhoneViewController: UIViewController {
-    
     
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var displayLable: UILabel!
@@ -86,10 +78,6 @@ class PhoneViewController: UIViewController {
             isDeletedFormated = true
         }
         
-        
-        //"000-111-1111"  <-- phone format
-        //"000-111-11111"  <-- exceed format
-        
     }
 
     @IBAction func onClickSymbols(_ sender: Any) {
@@ -103,7 +91,6 @@ class PhoneViewController: UIViewController {
         else if (tag == 12) {
             displayLable.text = displayLable.text! + "#"
         }
-        
     }
     
     private func showButtons() {
@@ -115,15 +102,5 @@ class PhoneViewController: UIViewController {
         deleteButton.isHidden = true
         displayAddContact.isHidden = true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
