@@ -10,13 +10,17 @@ import UIKit
 
 class FavViewController: UIViewController {
 
+    @IBOutlet weak var favText: UILabel!
     @IBOutlet weak var editBt: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var favorites = ["Jenn","David","Stephanie","Jeff","Valerie","Mike","Laura"]
     var editFlag = false
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        favText.isHidden = false
+        favText.textColor = UIColor.gray
         // Do any additional setup after loading the view.
     /*
     // MARK: - Navigation
@@ -83,6 +87,19 @@ extension FavViewController: UITableViewDataSource, UITableViewDelegate {
         else {
             return .none
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let index1 = sourceIndexPath.row
+        let index2 = destinationIndexPath.row
+        
+        let temp = favorites[index1]
+        favorites[index1] = favorites[index2]
+        favorites[index2] = temp
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

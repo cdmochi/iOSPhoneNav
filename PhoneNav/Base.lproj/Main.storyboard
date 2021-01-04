@@ -118,10 +118,6 @@
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGS-jR-9E8">
                                 <rect key="frame" x="20" y="112" width="142" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="gkV-t2-hdE"/>
-                                    <constraint firstAttribute="height" constant="40" id="wtW-r3-lgS"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -132,17 +128,16 @@
                             <constraint firstItem="YPj-ky-pEk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="09P-Jw-tHu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Bw-a5-qKw" secondAttribute="trailing" constant="24" id="4Qb-pe-NSJ"/>
                             <constraint firstItem="YPj-ky-pEk" firstAttribute="leading" secondItem="dtR-q8-qcP" secondAttribute="trailing" constant="102" id="9TD-zM-YuA"/>
+                            <constraint firstItem="NgP-8h-y89" firstAttribute="top" secondItem="GGS-jR-9E8" secondAttribute="bottom" constant="8" id="Af8-2b-5CE"/>
+                            <constraint firstItem="GGS-jR-9E8" firstAttribute="top" secondItem="dtR-q8-qcP" secondAttribute="bottom" constant="17" id="BXf-yx-LQb"/>
+                            <constraint firstItem="GGS-jR-9E8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ClX-ul-afa"/>
                             <constraint firstItem="6Bw-a5-qKw" firstAttribute="leading" secondItem="YPj-ky-pEk" secondAttribute="trailing" constant="68" id="Iwg-WH-Ssr"/>
-                            <constraint firstItem="GGS-jR-9E8" firstAttribute="top" secondItem="dtR-q8-qcP" secondAttribute="bottom" constant="17" id="J0r-7g-MJW"/>
                             <constraint firstItem="dtR-q8-qcP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LAb-4V-V45"/>
-                            <constraint firstItem="NgP-8h-y89" firstAttribute="top" secondItem="GGS-jR-9E8" secondAttribute="bottom" constant="8" id="LJf-Dt-fnx"/>
                             <constraint firstItem="6Bw-a5-qKw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Xzl-8M-8kY"/>
                             <constraint firstItem="NgP-8h-y89" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a2s-PY-2AC"/>
                             <constraint firstItem="NgP-8h-y89" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dow-d9-m9H"/>
-                            <constraint firstItem="NgP-8h-y89" firstAttribute="top" secondItem="GGS-jR-9E8" secondAttribute="bottom" constant="8" id="fGG-ec-Wmh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GGS-jR-9E8" secondAttribute="trailing" constant="252" id="hdZ-Mz-eVi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GGS-jR-9E8" secondAttribute="trailing" constant="252" id="eFQ-gy-ngx"/>
                             <constraint firstItem="dtR-q8-qcP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="p5M-sM-lZK"/>
-                            <constraint firstItem="GGS-jR-9E8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qgC-ib-hZf"/>
                             <constraint firstItem="NgP-8h-y89" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vxw-ie-XWt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -150,6 +145,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" landscapeImage="star.fill" id="iKG-WY-dlU"/>
                     <connections>
                         <outlet property="editBt" destination="6Bw-a5-qKw" id="Rb9-i2-lk3"/>
+                        <outlet property="favText" destination="GGS-jR-9E8" id="dkr-DP-gmf"/>
                         <outlet property="tableView" destination="NgP-8h-y89" id="uAF-qT-Viq"/>
                     </connections>
                 </viewController>
